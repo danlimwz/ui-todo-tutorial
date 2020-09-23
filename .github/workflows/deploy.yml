@@ -36,7 +36,10 @@ jobs:
 
       # TODO: Add a stage for running cypress tests
       - name: Run cypress tests
-        run: npm run cypress:open
+        uses: actions/checkout@v1
+        with:
+          start: npm run start:test
+          browser: chrome
 
       # TODO: Add a stage to generate cypress videos and screenshots as artifacts
 
