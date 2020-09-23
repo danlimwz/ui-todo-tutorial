@@ -35,11 +35,14 @@ jobs:
         run: npm run test
 
       # TODO: Add a stage for running cypress tests
-      - name: Run cypress tests
-        uses: actions/checkout@v1
+      - name: Run end-to-end cypress test
+        uses: cypress-io/github-action@v1
         with:
           start: npm run start:test
           browser: chrome
+        env:
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # TODO: Add a stage to generate cypress videos and screenshots as artifacts
 
