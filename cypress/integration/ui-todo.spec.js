@@ -22,8 +22,4 @@ describe("CRUD flow - ui-todo", () => {
     );
   });
 
-  it("should be able to delete todo", () => {
-    cy.get("[data-cy=todo-task__button-delete]").click({multiple : true});
-  });
-
 });
