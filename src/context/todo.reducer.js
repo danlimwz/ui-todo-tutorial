@@ -1,4 +1,4 @@
-import { SET_TODOS, ADD_TODO } from "./todo.actions";
+import { SET_TODOS, ADD_TODO, DELETE_TODO} from "./todo.actions";
 
 export const todoReducer = (state, action) => {
   const { type, data } = action;
@@ -13,5 +13,13 @@ export const todoReducer = (state, action) => {
       return { ...state, todos };
     default:
       return state;
+    case DELETE_TODO:
+      const newTodoList= {
+        ...state.todos,
+      }
+
+      delete newTodoList[data.id]
+
+      return {...state, todos: newTodoList};
   }
 };
